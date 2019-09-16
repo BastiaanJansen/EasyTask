@@ -22,10 +22,11 @@
 			<p class="undertitle" v-else>{{ todosDue(selectedDay).length }} taken</p>
 
 			<div class="todos" v-if="todosDue(selectedDay).length">
+				<!-- <transition-group name="scale-in"> -->
 				<div
 					class="todo"
 					v-for="(todo, index) in todosDue(selectedDay)"
-					:key="index"
+					:key="index + 0"
 					:class="{ done: todo.completed }"
 				>
 					<label @change="completeTodo(todo)">
@@ -38,6 +39,7 @@
 						<i class="fas fa-times" @click="deleteTodo(todo)"></i>
 					</div>
 				</div>
+				<!-- </transition-group> -->
 
 				<div class="progress-bar">
 					<div
@@ -131,21 +133,36 @@ export default {
 <style lang="scss">
 @import "@/assets/css/includes/_variables.scss";
 
-.container {
-	margin: 0 auto;
-	// min-height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	padding-bottom: 80px;
-}
+// .container {
+// 	margin: 0 auto;
+// 	min-height: 100%;
+// 	display: flex;
+// 	flex-direction: column;
+// 	justify-content: center;
+// 	align-items: center;
+// 	padding-bottom: 80px;
+// }
+
+// .scale-in-enter-active,
+// .scale-in-leave-active {
+// 	transition: all 0.2s !important;
+// 	max-height: 2000px;
+// 	overflow: hidden;
+// }
+
+// .scale-in-enter, .scale-in-leave-to {
+// 	opacity: 0;
+// 	transform: scale(0.95);
+// 	max-height: 0;
+// }
 
 .dates {
 	display: flex;
 	margin: -15px;
 	margin-bottom: 10px;
 	text-align: center;
+	flex-wrap: wrap;
+	justify-content: center;
 
 	.day {
 		margin: 15px;
@@ -179,7 +196,9 @@ export default {
 	border-radius: 10px;
 	border: 1 px solid $color-gray-300;
 	box-shadow: $shadow;
-	width: 500px;
+	max-width: 500px;
+	width: 100%;
+	transition: 0.3s;
 
 	h3 {
 		text-transform: capitalize;

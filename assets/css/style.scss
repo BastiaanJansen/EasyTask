@@ -67,9 +67,15 @@ ol {
 .container {
 	position: relative;
 	margin: 0 auto;
-	width: 1080px;
+	max-width: 1080px;
 	height: 100%;
 	top: 60px;
+	padding: 10px;
+	padding-bottom: 80px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .nav {
