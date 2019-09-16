@@ -1,4 +1,4 @@
-# Todo
+# EasyTask
 
 > My bedazzling Nuxt.js project
 
