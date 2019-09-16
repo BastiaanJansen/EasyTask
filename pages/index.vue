@@ -211,8 +211,8 @@ export default {
 				align-items: center;
 
 				.checkbox {
-					width: 10px;
-					height: 10px;
+					min-width: 10px;
+					min-height: 10px;
 					border-radius: 50%;
 					transition: 0.3s;
 					margin-right: 15px;
