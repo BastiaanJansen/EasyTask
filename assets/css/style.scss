@@ -1,0 +1,117 @@
+@import "./includes/variables";
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+// :root {
+//   --main-color: red;
+// }
+
+/*var(--main-color); */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-weight: 400;
+	font-family: "Open Sans", sans-serif;
+	// color: #333;
+	overflow-x: hidden;
+	background-color: $color-gray-200;
+}
+
+p {
+	font-size: 14px;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li {
+	margin: 0;
+	padding: 0;
+}
+
+ul,
+ol {
+	list-style-type: none;
+}
+
+::-moz-selection {
+	color: #fff;
+	background-color: #333;
+}
+
+::selection {
+	color: #fff;
+	background-color: #333;
+}
+
+.clearfix::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.container {
+	position: relative;
+	margin: 0 auto;
+	width: 1080px;
+	height: 100%;
+	top: 60px;
+}
+
+.nav {
+	width: 100%;
+	position: fixed;
+	left: 0;
+	height: 60px;
+	background-color: #343434;
+}
+
+.nav ul li a {
+	color: white;
+	margin-left: 40px;
+}
+
+.nav ul li a:nth-of-type(1) {
+	margin-left: 22px;
+}
+
+.nav ul {
+	position: relative;
+	list-style-type: none;
+	font-weight: bold;
+	top: 50%;
+	transform: translateY(-50%);
+	text-transform: uppercase;
+	font-size: 14px;
+	left: 400px;
+}
+
+.nav ul li a span {
+	font-size: 12px;
+	margin-left: 4px;
+}
+
+form {
+	input {
+		padding: 7px 0;
+		outline: none;
+		border: none;
+		border-bottom: 1px solid $color-gray-300;
+		width: 100%;
+		font-size: 14px;
+	}
+}
