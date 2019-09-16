@@ -14,7 +14,8 @@ module.exports = {
 			{
 				hid: "description",
 				name: "description",
-				content: process.env.npm_package_description || ""
+				content:
+					"EasyTask is een makkelijke manier om uw taken voor de dag op een overzichtelijke menier op te schrijven."
 			}
 		],
 		link: [
