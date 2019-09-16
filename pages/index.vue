@@ -47,7 +47,7 @@
 				</div>
 			</div>
 			<div v-else class="empty">
-				<p>Er zijn geen taken voor vandaag</p>
+				<p>Er zijn geen taken voor deze dag</p>
 			</div>
 
 			<form @submit.prevent="createTodo">
