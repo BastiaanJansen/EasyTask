@@ -50,7 +50,7 @@
 						:key="index + 0"
 						:class="{ done: todo.completed }"
 					>
-						<label @change="completeTodo(todo)">
+						<label @change="completeTodo(todo)" v-on:keyup.enter="completeTodo(todo)" tabindex="0">
 							<div class="checkbox" :class="{ checked: todo.completed }"></div>
 							<input type="checkbox" />
 							<p>{{ todo.name }}</p>
