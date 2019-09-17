@@ -111,3 +111,7 @@ form input {
   width: 100%;
   font-size: 14px;
 }
+
+body:not(.user-is-tabbing) * {
+  outline: none;
+}

@@ -121,3 +121,7 @@ form {
 		font-size: 14px;
 	}
 }
+
+body:not(.user-is-tabbing) * {
+	outline: none;
+}
