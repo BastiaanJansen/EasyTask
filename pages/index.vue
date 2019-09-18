@@ -4,7 +4,7 @@
 			<div
 				class="arrow"
 				@click="selectedDay = $moment(selectedDay).subtract(1, 'd')"
-				v-on:keydown.enter="selectedDay = $moment(selectedDay).subtract(1, 'd')"
+				v-on:keydown.enter="clickElement"
 				tabindex="0"
 			>
 				<i class="fas fa-chevron-left"></i>
@@ -13,7 +13,7 @@
 			<div
 				class="day"
 				@click="selectedDay = $moment(day)"
-				v-on:keyup.enter="selectedDay = $moment(day)"
+				v-on:keyup.enter="clickElement"
 				tabindex="0"
 				:class="{ selected: $moment(day).isSame($moment(selectedDay), 'days') != 0 }"
 				v-for="(day, index) in week"
@@ -26,7 +26,7 @@
 			<div
 				class="arrow"
 				@click="selectedDay = $moment(selectedDay).add(1, 'd')"
-				v-on:keydown.enter="selectedDay = $moment(selectedDay).add(1, 'd')"
+				v-on:keydown.enter="clickElement"
 				tabindex="0"
 			>
 				<i class="fas fa-chevron-right"></i>
@@ -50,7 +50,7 @@
 						:key="index + 0"
 						:class="{ done: todo.completed }"
 					>
-						<label @change="completeTodo(todo)" v-on:keyup.enter="completeTodo(todo)" tabindex="0">
+						<label @change="completeTodo(todo)" v-on:keyup.enter="clickElement" tabindex="0">
 							<div class="checkbox" :class="{ checked: todo.completed }"></div>
 							<input type="checkbox" />
 							<p>{{ todo.name }}</p>
@@ -60,7 +60,7 @@
 							<i
 								class="fas fa-times"
 								@click="deleteTodo(todo)"
-								v-on:keyup.enter="deleteTodo(todo)"
+								v-on:keyup.enter="clickElement"
 								tabindex="0"
 							></i>
 						</div>
@@ -80,7 +80,7 @@
 
 				<form @submit.prevent="createTodo">
 					<input ref="input" type="text" placeholder="Maak een nieuwe taak" v-model="createTodoName" />
-					<i class="fas fa-plus" @click="createTodo" v-on:keyup.enter="createTodo" tabindex="0"></i>
+					<i class="fas fa-plus" @click="createTodo" v-on:keyup.enter="clickElement" tabindex="0"></i>
 				</form>
 			</div>
 		</div>
@@ -160,6 +160,15 @@ export default {
 		},
 		todosDue(day) {
 			return this.$store.getters["todos/todosDue"](day);
+		},
+		clickElement(event) {
+			event.target.dispatchEvent(
+				new MouseEvent("click", {
+					view: window,
+					bubbles: true,
+					cancelable: false
+				})
+			);
 		}
 	},
 	mounted() {
