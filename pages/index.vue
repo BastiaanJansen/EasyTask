@@ -325,8 +325,10 @@ export default {
 						cursor: pointer;
 						transition: 0.3s;
 
-						&:hover {
+						&:hover,
+						&:focus {
 							color: $color-red-500;
+							outline: none;
 						}
 					}
 				}
